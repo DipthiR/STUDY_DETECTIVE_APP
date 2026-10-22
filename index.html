@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Study Detective is an educational escape-room game for interactive subject learning.">
+  <title>Study Detective | Escape Room Academy</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">⌕ <strong>STUDY DETECTIVE</strong></div>
+      <p class="subtitle">ESCAPE ROOM ACADEMY</p>
+
+      <div class="xp-box">
+        DETECTIVE XP
+        <strong id="xp">0</strong>
+        <div class="xp-bar"><i id="xpbar"></i></div>
+      </div>
+
+      <button class="nav active" id="roomsNav">🗝 Escape Rooms</button>
+      <button class="nav" id="progressNav">📁 Case Archive</button>
+      <p class="sidebar-note">Investigate. Learn. Escape.</p>
+    </aside>
+
+    <main>
+      <header>
+        <div>
+          <small>TOP SECRET · LEARNING OPERATIONS</small>
+          <h1 id="pageTitle">SELECT SUBJECT</h1>
+        </div>
+        <div class="stats">🔥 <b id="streak">0</b> &nbsp; ✓ <b id="escaped">0</b></div>
+      </header>
+
+      <section id="roomsView">
+        <div class="hero">
+          <div>
+            <span>STEP 1</span>
+            <h2>SELECT SUBJECT</h2>
+            <p>Choose a subject to receive your mystery case.</p>
+          </div>
+          <div class="hero-door">EXIT<br><b>?</b></div>
+        </div>
+
+        <div class="toolbar">
+          <h3>Choose your subject</h3>
+          <select id="filter" aria-label="Filter subjects">
+            <option value="all">All subjects</option>
+            <option value="science">Science</option>
+            <option value="tech">Technology</option>
+            <option value="math">Math &amp; Data</option>
+            <option value="humanities">Humanities</option>
+          </select>
+        </div>
+
+        <div id="roomGrid" class="room-grid"></div>
+      </section>
+
+      <section id="gameView" class="hidden">
+        <button id="backBtn" class="back">← SELECT SUBJECT</button>
+
+        <div class="room-head">
+          <div>
+            <span id="subjectTag"></span>
+            <h2 id="roomTitle"></h2>
+            <p id="roomDesc"></p>
+          </div>
+          <div class="timer">
+            TIME
+            <strong id="timer">07:00</strong>
+            <small id="lives">♥ ♥ ♥</small>
+          </div>
+        </div>
+
+        <div class="steps">
+          <span>1 SELECT SUBJECT</span>
+          <span>2 MYSTERY CASE</span>
+          <span>3 ENTER ESCAPE ROOM</span>
+          <span>4 INVESTIGATE CLUES</span>
+        </div>
+
+        <div class="game-grid">
+          <div class="panel scene-panel">
+            <div class="section-heading">
+              ESCAPE ROOM <span id="found">0/5 CLUES</span>
+            </div>
+
+            <div class="room-scene">
+              <div class="wall"></div>
+              <div class="floor"></div>
+              <div class="lamp">◉</div>
+              <div class="scene-door">🚪</div>
+              <div class="window">▦</div>
+              <div class="cabinet">▤</div>
+              <div class="table-shape">▰</div>
+              <div class="plant">🪴</div>
+              <div id="objects" class="objects"></div>
+            </div>
+
+            <p class="help">🔎 Investigate the glowing objects in the room.</p>
+          </div>
+
+          <div class="panel question-panel">
+            <div class="section-heading">
+              QUESTIONS <span id="questionCount">Question 0 / 5</span>
+            </div>
+
+            <div id="inspectBody" class="inspect">
+              <span class="badge">❓ CLUE SYSTEM</span>
+              <h3>Investigate a clue</h3>
+              <p>Select an unlocked object to reveal a question. Answer correctly to earn XP and collect evidence.</p>
+            </div>
+          </div>
+
+          <div class="panel evidence-panel">
+            <div class="section-heading">EVIDENCE BAG</div>
+            <div id="inventory">
+              <p class="muted">No evidence collected yet.</p>
+            </div>
+
+            <button id="hintBtn" class="ghost">💡 GET HINT · 10 XP</button>
+            <p id="hintText"></p>
+            <h3>GAME STATUS</h3>
+            <p class="muted">Answer questions, earn XP, unlock clues and solve the final challenge.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="progressView" class="hidden">
+        <span class="eyebrow">CASE ARCHIVE</span>
+        <h2>TRACK YOUR PROGRESS</h2>
+
+        <div class="summary-cards">
+          <div><b id="totalXp">0</b>XP</div>
+          <div><b id="totalEscaped">0</b>Escaped</div>
+          <div><b id="accuracy">0%</b>Accuracy</div>
+        </div>
+
+        <div class="panel">
+          <div class="section-heading">ROOM PROGRESS</div>
+          <div id="mastery"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
